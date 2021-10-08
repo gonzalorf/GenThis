@@ -24,7 +24,7 @@ namespace GenThis.Models
         , Method
         , Parameter
         , Enumeration
-        , Solution
+        , Project
         , Other
     }
 }

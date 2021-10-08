@@ -5,7 +5,7 @@ using System.Linq;
 namespace GenThis.Models
 {
     [Serializable]
-    public class Solution : Base
+    public class Project : Base
     {
         public string Name { get; set; }
         public string Description { get; set; }
