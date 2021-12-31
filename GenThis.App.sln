@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenThis.App", "GenThis.App\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenThis.Models", "GenThis.Models\GenThis.Models.csproj", "{9E87A394-EDA1-4DE1-A6CA-39DC6C1EFDD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenThis.API", "GenThis.API\GenThis.API.csproj", "{C641FAC9-01FA-4A0D-96BE-C562CB87187A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9E87A394-EDA1-4DE1-A6CA-39DC6C1EFDD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E87A394-EDA1-4DE1-A6CA-39DC6C1EFDD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E87A394-EDA1-4DE1-A6CA-39DC6C1EFDD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C641FAC9-01FA-4A0D-96BE-C562CB87187A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C641FAC9-01FA-4A0D-96BE-C562CB87187A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C641FAC9-01FA-4A0D-96BE-C562CB87187A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C641FAC9-01FA-4A0D-96BE-C562CB87187A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
