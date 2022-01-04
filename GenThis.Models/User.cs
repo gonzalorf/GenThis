@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace GenThis.Models
 {
-    public class User
+    public class User : Base
     {
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+
     }
 }

@@ -5,11 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GenThis.Models\GenThis.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Code\" />
   </ItemGroup>
 
 </Project>

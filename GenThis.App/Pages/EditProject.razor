@@ -1,0 +1,22 @@
+﻿@page "/editproject/{ProjectID}"
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<h3>Project <b>@project.Name</b></h3>
+<i>@project.Description</i>
+<hr />
+
+@code {
+    [Parameter]
+    public string ProjectID { get; set; }
+
+    Project project = new Project();
+    bool showErrorMessage = false;
+    string errorMessage = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        project = await httpClient.GetFromJsonAsync<Project>("Project/Get?projectID=" + ProjectID);
+    }
+}
+    

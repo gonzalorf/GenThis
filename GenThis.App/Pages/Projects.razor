@@ -1,0 +1,29 @@
+﻿@page "/projects"
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<h3>Projects</h3>
+
+<button class="btn btn-primary" @onclick=@(() => navigationManager.NavigateTo("/newproject"))>New Project</button>
+@foreach (var project in projects)
+{
+    <div class="card" style="width: 18rem;">
+        @*<img src="..." class="card-img-top" alt="...">*@
+        <div class="card-body">
+            <h5 class="card-title">@project.Name</h5>
+            <p class="card-text">@project.Description</p>
+            <a href="/editproject/@project.ID" class="btn btn-primary">Go to Project</a>
+        </div>
+    </div>
+}
+
+
+
+@code {
+    IList<Project> projects = new List<Project>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        projects = await httpClient.GetFromJsonAsync<IList<Project>>("Project/GetAll");
+    }
+}

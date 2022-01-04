@@ -1,3 +1,4 @@
+using GenThis.API.Storage;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,19 @@ namespace GenThis.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GenThis.API", Version = "v1" });
             });
+
+            services.AddScoped<IStorage, InMemoryStorage>();
+
+            services.AddCors(policy =>
+            {
+                policy.AddPolicy("allowAnyOriginClient", builder => builder
+                     //.WithOrigins("https://localhost:44347")
+                     .AllowAnyOrigin()
+                     .AllowAnyMethod()
+                     .AllowAnyHeader()
+                     //.AllowCredentials()
+                     );
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +61,8 @@ namespace GenThis.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("allowAnyOriginClient");
 
             app.UseAuthorization();
 
