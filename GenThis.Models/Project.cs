@@ -54,7 +54,7 @@ namespace GenThis.Models
             return classes;
         }
 
-        public Enumeration GetEnum(string id)
+        public Enumeration GetEnumeration(string id)
         {
             foreach (var ns in Namespaces)
             {
@@ -67,7 +67,7 @@ namespace GenThis.Models
             return null;
         }
 
-        public List<Enumeration> GetEnums()
+        public List<Enumeration> GetEnumerations()
         {
             var enums = new List<Enumeration>();
 

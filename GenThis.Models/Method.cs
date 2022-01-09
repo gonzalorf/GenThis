@@ -28,7 +28,7 @@ namespace GenThis.Models
                 case TypeKind.Reference:
                     type = ReferenceReturnType.Name;
                     break;
-                case TypeKind.Enum:
+                case TypeKind.Enumeration:
                     type = EnumReturnType.Name;
                     break;
             }
@@ -48,7 +48,7 @@ namespace GenThis.Models
                 case TypeKind.Reference:
                     type = ReferenceReturnType.Name;
                     break;
-                case TypeKind.Enum:
+                case TypeKind.Enumeration:
                     type = EnumReturnType.Name;
                     break;
             }

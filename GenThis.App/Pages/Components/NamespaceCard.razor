@@ -1,0 +1,22 @@
+﻿<div class="card mb-3">
+  <div class="card-header text-white bg-primary">
+    Namespace <b>@Namespace.Name</b>
+    <i class="bi-pencil" @onclick=@(() => promptNamespaceName.Show())></i>
+    <i class="bi-trash" @onclick=@(() => confirmDeleteNamespace.Show())></i>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Classes<button class="btn btn-link btn-sm" @onclick=@(() => classEditor.Show(new Class()))>Add Class</button>
+    </h5>
+    @foreach(var c in Namespace.Classes)
+        {
+            <ClassCard Project=Project Class=c OnDelete=OnDeleteClass></ClassCard>
+        }
+
+    <h5 class="card-title">Enumerations<button class="btn btn-link btn-sm">Add Enumeration</button></h5>
+    
+  </div>
+</div>
+<PromptModal @ref=promptNamespaceName OnOk=OnOkNamespaceName></PromptModal>
+<ClassEditor @ref=classEditor Project=Project OnOk=OnOkClassEditor></ClassEditor>
+<ConfirmModal @ref=confirmDeleteNamespace OnOk=OnOkDelete></ConfirmModal>
+

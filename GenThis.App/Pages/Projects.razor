@@ -2,9 +2,9 @@
 @inject HttpClient httpClient
 @inject NavigationManager navigationManager
 
-<h3>Projects</h3>
+<h3>Projects<button class="btn btn-link btn-sm" @onclick=@(() => navigationManager.NavigateTo("/project"))>New Project</button>
+</h3>
 
-<button class="btn btn-primary" @onclick=@(() => navigationManager.NavigateTo("/newproject"))>New Project</button>
 @foreach (var project in projects)
 {
     <div class="card" style="width: 18rem;">
@@ -12,18 +12,7 @@
         <div class="card-body">
             <h5 class="card-title">@project.Name</h5>
             <p class="card-text">@project.Description</p>
-            <a href="/editproject/@project.ID" class="btn btn-primary">Go to Project</a>
+            <a href="/project/@project.ID" class="btn btn-link btn-sm">Go to Project</a>
         </div>
     </div>
-}
-
-
-
-@code {
-    IList<Project> projects = new List<Project>();
-
-    protected override async Task OnInitializedAsync()
-    {
-        projects = await httpClient.GetFromJsonAsync<IList<Project>>("Project/GetAll");
-    }
 }

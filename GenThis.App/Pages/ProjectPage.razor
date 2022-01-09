@@ -1,0 +1,35 @@
+﻿@page "/project/{ProjectID}" //Edit an existing project
+@page "/project" //New project
+
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<h3>Project <b>@project.Name</b> <i class="bi-pencil" @onclick=@(() => promptProjectName.Show())></i></h3>
+<i>@project.Description</i>  <i class="bi-pencil" @onclick=@(() => promptProjectDescription.Show())></i>
+<hr />
+
+<h5>Namespaces<button class="btn btn-link btn-sm" @onclick=@(() => promptNamespaceName.Show())>Add Namespace</button></h5>
+
+@foreach(var n in project.Namespaces)
+{
+    <NamespaceCard Project=project Namespace=n OnDelete=OnDeleteNamespace></NamespaceCard>    
+}
+
+<hr />
+@if (!string.IsNullOrWhiteSpace(errorMessage)) 
+{ 
+<div class="alert alert-danger" role="alert">
+    @errorMessage
+</div>
+}
+
+<button class="btn btn-secondary" @onclick=@(() => navigationManager.NavigateTo("/projects"))>Cancel</button>
+<button class="btn btn-primary" @onclick="Save">Save</button>
+@if (string.IsNullOrWhiteSpace(ProjectID))
+{
+    <p class="text-danger">Project not saved</p>
+}
+
+<PromptModal @ref=promptProjectName OnOk=OnOkProjectName></PromptModal>
+<PromptModal @ref=promptProjectDescription OnOk=OnOkProjectDescription></PromptModal>
+<PromptModal @ref=promptNamespaceName OnOk=OnOkNamespaceName></PromptModal>

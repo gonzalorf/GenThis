@@ -7,13 +7,12 @@ namespace GenThis.Models
     {
         public string Name { get; set; }
         public string UIName { get; set; }
-        public string UINamePlural { get; set; }
         public TypeKind TypeKind { get; set; }
         public RelationshipKind RelationshipKind { get; set; }
         public Class ReferenceType { get; set; }
         public BuiltInType BuiltInType { get; set; }
-        public Enumeration EnumType { get; set; }
-        public bool Nullable { get; set; } = true;
+        public Enumeration EnumerationType { get; set; }
+        public bool IsNullable { get; set; } = true;
         public bool IsList { get; set; }
         public bool PreventLazyLoad { get; set; }
         public bool IsUnique { get; set; }
@@ -30,12 +29,12 @@ namespace GenThis.Models
                 case TypeKind.Reference:
                     type = ReferenceType.Name;                    
                     break;
-                case TypeKind.Enum:
-                    type = EnumType.Name;
+                case TypeKind.Enumeration:
+                    type = EnumerationType.Name;
                     break;
             }
 
-            string nullable = Nullable ? "(nullable)" : "";
+            string nullable = IsNullable ? "(nullable)" : "";
             string list = IsList ? "List of " : " ";
             return string.Format("{0}: {1}{2} {3}", Name, list, type, nullable);
         }
@@ -53,8 +52,8 @@ namespace GenThis.Models
                 case TypeKind.Reference:
                     type = ReferenceType.Name;
                     break;
-                case TypeKind.Enum:
-                    type = EnumType.Name;
+                case TypeKind.Enumeration:
+                    type = EnumerationType.Name;
                     break;
             }
 
@@ -67,14 +66,14 @@ namespace GenThis.Models
     {
         BuiltIn,
         Reference,
-        Enum,
+        Enumeration,
         Void
     }
 
     public enum BuiltInType
     {
         String
-        , Int
+        , Integer
         , Float
         , Long
         , Double
