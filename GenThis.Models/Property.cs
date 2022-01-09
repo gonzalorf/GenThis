@@ -17,6 +17,25 @@ namespace GenThis.Models
         public bool PreventLazyLoad { get; set; }
         public bool IsUnique { get; set; }
 
+        public void Validate()
+        {
+            switch (TypeKind)
+            {
+                case TypeKind.BuiltIn:
+                    break;
+                case TypeKind.Reference:
+                    if (ReferenceType == null) throw new ApplicationException("Reference Type not set.");
+                    break;
+                case TypeKind.Enumeration:
+                    if (EnumerationType == null) throw new ApplicationException("Enumeration Type not set.");
+                    break;
+                case TypeKind.Void:
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public override string ToString()
         {
             string type = string.Empty;

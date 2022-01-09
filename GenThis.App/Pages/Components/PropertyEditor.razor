@@ -27,7 +27,7 @@
                     {
                         <div class="mb-3">
                             <label class="form-label">Type</label>
-                            <select class="form-select">
+                            <select class="form-select" @bind=selectedReferenceTypeID>
                                 @foreach (var referenceType in Project.GetClasses())
                                 {
                                     <option value="@referenceType.ID">@referenceType.Name</option>
@@ -39,7 +39,7 @@
                     {
                         <div class="mb-3">
                             <label class="form-label">Type</label>
-                            <select class="form-select">
+                            <select class="form-select" @bind=selectedEnumerationTypeID>
                                 @foreach (var enumerationType in Project.GetEnumerations())
                                 {
                                     <option value="@enumerationType.ID">@enumerationType.Name</option>
@@ -86,9 +86,15 @@
                       </label>
                     </div>
                 </div>
-                <div class="modal-footer">
+                @if (!string.IsNullOrWhiteSpace(errorMessage)) 
+                { 
+                <div class="alert alert-danger" role="alert">
+                    @errorMessage
+                </div>
+                }
+                <div class="modal-footer">                    
                     <button type="button" class="btn btn-secondary" @onclick=Hide>Cancel</button>
-                    <button type="button" class="btn btn-primary" @onclick=@(() => { OnOk.InvokeAsync(property); Hide(); })>Ok</button>
+                    <button type="button" class="btn btn-primary" @onclick=Ok>Ok</button>
                 </div>
             </div>
         </div>

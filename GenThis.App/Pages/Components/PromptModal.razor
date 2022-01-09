@@ -14,7 +14,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" @onclick=Hide>Cancel</button>
-                    <button type="button" class="btn btn-primary" @onclick=@(() => { OnOk.InvokeAsync(text); Hide(); })>Ok</button>
+                    <button type="button" class="btn btn-primary" @onclick=@(() => Ok)>Ok</button>
                 </div>
             </div>
         </div>

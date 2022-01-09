@@ -30,6 +30,6 @@
     <p class="text-danger">Project not saved</p>
 }
 
-<PromptModal @ref=promptProjectName OnOk=OnOkProjectName></PromptModal>
-<PromptModal @ref=promptProjectDescription OnOk=OnOkProjectDescription></PromptModal>
-<PromptModal @ref=promptNamespaceName OnOk=OnOkNamespaceName></PromptModal>
+<PromptModal @ref=promptProjectName Title="Project" Body="Type Project name" OnOk=OnOkProjectName></PromptModal>
+<PromptModal @ref=promptProjectDescription Title="Project" Body="Type Project description" OnOk=OnOkProjectDescription></PromptModal>
+<PromptModal @ref=promptNamespaceName Title="Namespace" Body="Type Namespace name" OnOk=OnOkNamespaceName></PromptModal>

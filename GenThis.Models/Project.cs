@@ -26,13 +26,13 @@ namespace GenThis.Models
             return null;
         }
 
-        public Class GetClass(string id)
+        public Class GetClass(Guid id)
         {
             foreach (var ns in Namespaces)
             {
                 foreach (var c in ns.Classes)
                 {
-                    if (c.ID.ToString() == id) return c;
+                    if (c.ID == id) return c;
                 }
             }
 
@@ -54,13 +54,13 @@ namespace GenThis.Models
             return classes;
         }
 
-        public Enumeration GetEnumeration(string id)
+        public Enumeration GetEnumeration(Guid id)
         {
             foreach (var ns in Namespaces)
             {
                 foreach (var e in ns.Enumerations)
                 {
-                    if (e.ID.ToString() == id) return e;
+                    if (e.ID == id) return e;
                 }
             }
 

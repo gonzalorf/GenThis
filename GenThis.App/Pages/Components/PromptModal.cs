@@ -23,6 +23,12 @@ namespace GenThis.App.Pages.Components
             Show();
         }
 
+        protected void Ok()
+        {
+            if (string.IsNullOrWhiteSpace(text)) return; // TODO: show message to user
+            OnOk.InvokeAsync(text); Hide();
+        }
+
         public void Show()
         {
             show = true;

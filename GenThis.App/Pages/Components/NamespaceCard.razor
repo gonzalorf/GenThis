@@ -16,7 +16,7 @@
     
   </div>
 </div>
-<PromptModal @ref=promptNamespaceName OnOk=OnOkNamespaceName></PromptModal>
+<PromptModal @ref=promptNamespaceName Title="Namespace" Body="Type Namespace name" OnOk=OnOkNamespaceName></PromptModal>
 <ClassEditor @ref=classEditor Project=Project OnOk=OnOkClassEditor></ClassEditor>
-<ConfirmModal @ref=confirmDeleteNamespace OnOk=OnOkDelete></ConfirmModal>
+<ConfirmModal @ref=confirmDeleteNamespace Title="Namespace" Body="Delete Namespace?" OnOk=OnOkDelete></ConfirmModal>
 
