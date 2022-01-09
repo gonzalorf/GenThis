@@ -26,7 +26,8 @@ namespace GenThis.App.Pages.Components
         protected void Ok()
         {
             if (string.IsNullOrWhiteSpace(text)) return; // TODO: show message to user
-            OnOk.InvokeAsync(text); Hide();
+            OnOk.InvokeAsync(text);
+            Hide();
         }
 
         public void Show()
@@ -38,6 +39,7 @@ namespace GenThis.App.Pages.Components
         public void Hide()
         {
             show = false;
+            text = string.Empty;
             StateHasChanged();
         }
     }
