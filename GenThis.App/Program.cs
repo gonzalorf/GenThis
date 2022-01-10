@@ -19,6 +19,7 @@ namespace GenThis.App
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://genthisapi.azurewebsites.net/") });
 
+            
             await builder.Build().RunAsync();
         }
     }
