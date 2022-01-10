@@ -8,6 +8,7 @@ namespace GenThis.App.Pages.Components
     {
         protected bool show = false;
         protected string errorMessage = string.Empty;
+        protected Guid selectedBaseClassID;
 
         [Parameter]
         public Project Project { get; set; }
@@ -29,6 +30,12 @@ namespace GenThis.App.Pages.Components
                 editClass.Name = editClass.Name.Replace(" ", ""); // name can´t contain spaces
                 if (string.IsNullOrEmpty(editClass.UIName)) editClass.UIName = editClass.Name;
                 if (string.IsNullOrEmpty(editClass.UINamePlural)) editClass.UINamePlural = editClass.UIName;
+
+                if(selectedBaseClassID != Guid.Empty)
+                {
+                    editClass.BaseClass = Project.GetClass(selectedBaseClassID);
+                }
+
                 OnOk.InvokeAsync(editClass);
                 Hide();
             }

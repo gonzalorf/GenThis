@@ -2,22 +2,28 @@
     <div class="card-header text-white bg-secondary">
     Class <b>@Class.Name</b>
     <i class="bi-pencil" @onclick=@(() => classEditor.Show(Class))></i>
-    <i class="bi-trash" @onclick=@(() => confirmDeleteClass.Show())></i>
+    <i class="bi-trash" @onclick=@(() => confirmModal.Show("Class", "Delete Class?", "DELETE_CLASS", Class))></i>
   </div>
   <div class="card-body">
       <h5 class="card-title">Properties<button class="btn btn-link btn-sm" @onclick=@(() => propertyEditor.Show(new Property()))>Add Property</button></h5>
       <ul class="list-group list-group-flush">
           @foreach (var p in Class.Properties)
             {
-                <li class="list-group-item">@p.ToString()</li>
+                <li class="list-group-item">@p.ToString() 
+                    <i class="bi-pencil" @onclick=@(() => propertyEditor.Show(p))></i>
+                    <i class="bi-trash" @onclick=@(() => confirmModal.Show("Property", "Delete Property?", "DELETE_PROPERTY", p))></i>
+                </li>
             }
       </ul>
 
-      <h5 class="card-title">Methods<button class="btn btn-link btn-sm" @*@onclick=@(() => promptClassName.Show())*@>Add Method</button></h5>
+      <h5 class="card-title">Methods<button class="btn btn-link btn-sm" @onclick=@(() => methodEditor.Show(new Method()))>Add Method</button></h5>
       <ul class="list-group list-group-flush">
         @foreach (var m in Class.Methods)
             {
-                <li class="list-group-item">@m.Name</li>
+                <li class="list-group-item">@m.ToString() 
+                    <i class="bi-pencil" @onclick=@(() => methodEditor.Show(m))></i>
+                    <i class="bi-trash" @onclick=@(() => confirmModal.Show("Method", "Delete Method?", "DELETE_METHOD", m))></i>    
+                </li>
             }
       </ul>
 
@@ -26,5 +32,6 @@
 </div>
 
 <ClassEditor @ref=classEditor Project=Project OnOk=OnOkClassEditor></ClassEditor>
+<MethodEditor @ref=methodEditor Project=Project OnOk=OnOkMethodEditor></MethodEditor>
 <PropertyEditor @ref=propertyEditor Project=Project OnOk=OnOkPropertyEditor></PropertyEditor>
-<ConfirmModal @ref=confirmDeleteClass Title="Class" Body="Delete Class?" OnOk=OnOkDelete></ConfirmModal>
+<ConfirmModal @ref=confirmModal OnOk=OnOkDelete></ConfirmModal>

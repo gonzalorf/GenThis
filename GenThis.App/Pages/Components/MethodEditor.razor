@@ -4,26 +4,26 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Property</h5>
+                    <h5 class="modal-title">Method</h5>
                 </div>
                 <div class="modal-body">        
                     <div class="mb-3">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control" @bind=property.Name>
+                        <input type="text" class="form-control" @bind=method.Name>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">UI Name</label>
-                        <input type="text" class="form-control" @bind=property.UIName>
+                        <label class="form-label">Description</label>
+                        <input type="text" class="form-control" @bind=method.Description>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Type Kind</label>
-                        <select class="form-select" @bind=property.TypeKind>
+                        <label class="form-label">Return Type Kind</label>
+                        <select class="form-select" @bind=method.ReturnTypeKind>
                             <option selected value="BuiltIn">BuiltIn</option>
                             <option value="Reference">Reference</option>
                             <option value="Enumeration">Enumeration</option>
                         </select>
                     </div>
-                    @if (property.TypeKind == TypeKind.Reference)
+                    @if (method.ReturnTypeKind== TypeKind.Reference)
                     {
                         <div class="mb-3">
                             <label class="form-label">Type</label>
@@ -35,7 +35,7 @@
                             </select>
                         </div>
                     }
-                    @if (property.TypeKind == TypeKind.Enumeration)
+                    @if (method.ReturnTypeKind == TypeKind.Enumeration)
                     {
                         <div class="mb-3">
                             <label class="form-label">Type</label>
@@ -47,11 +47,11 @@
                             </select>
                         </div>
                     }
-                    @if (property.TypeKind == TypeKind.BuiltIn)
+                    @if (method.ReturnTypeKind == TypeKind.BuiltIn)
                     {
                         <div class="mb-3">
                             <label class="form-label">Type</label>
-                            <select class="form-select" @bind=property.BuiltInType>
+                            <select class="form-select" @bind=method.BuiltInReturnType>
                                 @foreach (var builtInType in Enum.GetValues(typeof(BuiltInType)))
                                 {
                                     <option value="@builtInType.ToString()">@builtInType.ToString()</option>
@@ -60,30 +60,31 @@
                         </div>
                     }
                     <div class="mb-3">
-                        <label class="form-label">Relationship Kind</label>
-                        <select class="form-select" @bind=property.RelationshipKind>
-                            <option selected value="Association">Association</option>
-                            <option value="Aggregation">Aggregation</option>
-                            <option value="Composition">Composition</option>
+                        <label class="form-label">Accessibility</label>
+                        <select class="form-select" @bind=method.Accessibility>
+                            <option selected value="Public">Public</option>
+                            <option value="Protected">Protected</option>
+                            <option value="Internal">Internal</option>
+                            <option value="Private">Private</option>
                         </select>
                     </div>
                     <div class="form-check mb-3">
-                      <input class="form-check-input" type="checkbox" @bind=property.IsList>
+                      <input class="form-check-input" type="checkbox" @bind=method.IsRetunTypeList>
                       <label class="form-check-label">
-                        Is List
+                        Return Type is List
                       </label>
                     </div>
                     <div class="form-check mb-3">
-                      <input class="form-check-input" type="checkbox" @bind=property.IsNullable>
-                      <label class="form-check-label">                
-                        Is Nullable                                   
-                      </label>                                        
-                    </div>                                            
-                    <div class="form-check mb-3">                     
-                      <input class="form-check-input" type="checkbox" @bind=property.IsUnique>
+                      <input class="form-check-input" type="checkbox" @bind=method.IsVirtual>
                       <label class="form-check-label">
-                        Is Unique
+                        Is Virtual
                       </label>
+                    </div>
+                    <div class="form-check mb-3">
+                      <input class="form-check-input" type="checkbox" @bind=method.IsStatic>
+                      <label class="form-check-label">                
+                        Is Static
+                      </label>                                        
                     </div>
                 </div>
                 @if (!string.IsNullOrWhiteSpace(errorMessage)) 

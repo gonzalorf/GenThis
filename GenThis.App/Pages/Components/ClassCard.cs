@@ -6,8 +6,9 @@ namespace GenThis.App.Pages.Components
     public partial class ClassCard : ComponentBase
     {
         ClassEditor classEditor;
+        MethodEditor methodEditor;
         PropertyEditor propertyEditor;
-        ConfirmModal confirmDeleteClass;
+        ConfirmModal confirmModal;
 
         [Parameter]
         public Project Project { get; set; }
@@ -20,18 +21,33 @@ namespace GenThis.App.Pages.Components
 
         void OnOkClassEditor(Class editedClass)
         {
-            //Class.Name = name.Replace(" ", ""); // name can´t contain spaces
+
         }
 
         void OnOkPropertyEditor(Property property)
         {
-            //Class.Name = name.Replace(" ", ""); // name can´t contain spaces
-            Class.Properties.Add(property);
+            if (!Class.Properties.Contains(property)) Class.Properties.Add(property);
+        }
+
+        void OnOkMethodEditor(Method method)
+        {
+            if(!Class.Methods.Contains(method)) Class.Methods.Add(method);
         }
 
         void OnOkDelete()
         {
-            OnDelete.InvokeAsync(Class);
+            switch (confirmModal.Action)
+            {
+                case "DELETE_CLASS":
+                    OnDelete.InvokeAsync(Class);
+                    break;
+                case "DELETE_PROPERTY":
+                    Class.Properties.Remove(confirmModal.Argument as Property);
+                    break;
+                case "DELETE_METHOD":
+                    Class.Methods.Remove(confirmModal.Argument as Method);
+                    break;
+            }
         }
     }
 }

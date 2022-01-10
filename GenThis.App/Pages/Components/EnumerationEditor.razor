@@ -4,30 +4,20 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Class</h5>
+                    <h5 class="modal-title">Enumeration</h5>
                 </div>
                 <div class="modal-body">        
                     <div class="mb-3">
                         <label class="form-label">Name</label>
-                        <input type="text" class="form-control" @bind=editClass.Name>
+                        <input type="text" class="form-control" @bind=enumeration.Name>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">UI Name</label>
-                        <input type="text" class="form-control" @bind=editClass.UIName>
+                        <input type="text" class="form-control" @bind=enumeration.UIName>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">UI Name Plural</label>
-                        <input type="text" class="form-control" @bind=editClass.UINamePlural>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Base Class</label>
-                        <select class="form-select" @bind=selectedBaseClassID>
-                            <option selected value="@Guid.Empty">None</option>
-                            @foreach (var baseClass in Project.GetClasses())
-                            {
-                                <option value="@baseClass.ID">@baseClass.Name</option>
-                            }
-                        </select>
+                        <input type="text" class="form-control" @bind=enumeration.UINamePlural>
                     </div>
                 </div>
                 <div class="modal-footer">

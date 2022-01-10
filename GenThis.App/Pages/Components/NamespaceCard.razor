@@ -12,11 +12,16 @@
             <ClassCard Project=Project Class=c OnDelete=OnDeleteClass></ClassCard>
         }
 
-    <h5 class="card-title">Enumerations<button class="btn btn-link btn-sm">Add Enumeration</button></h5>
-    
+    <h5 class="card-title">Enumerations<button class="btn btn-link btn-sm" @onclick=@(() => enumerationEditor.Show(new Enumeration()))>Add Enumeration</button></h5>
+    @foreach(var e in Namespace.Enumerations)
+        {
+            <EnumerationCard Project=Project Enumeration=e OnDelete=OnDeleteEnumeration></EnumerationCard>
+        }
+
   </div>
 </div>
 <PromptModal @ref=promptNamespaceName Title="Namespace" Body="Type Namespace name" OnOk=OnOkNamespaceName></PromptModal>
 <ClassEditor @ref=classEditor Project=Project OnOk=OnOkClassEditor></ClassEditor>
+<EnumerationEditor @ref=enumerationEditor Project=Project OnOk=OnOkEnumerationEditor></EnumerationEditor>
 <ConfirmModal @ref=confirmDeleteNamespace Title="Namespace" Body="Delete Namespace?" OnOk=OnOkDelete></ConfirmModal>
 

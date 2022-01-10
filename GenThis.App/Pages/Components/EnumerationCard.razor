@@ -1,0 +1,23 @@
+﻿<div class="card mb-3">
+    <div class="card-header text-white bg-warning">
+    Enumeration <b>@Enumeration.Name</b>
+    <i class="bi-pencil" @onclick=@(() => enumerationEditor.Show(Enumeration))></i>
+    <i class="bi-trash" @onclick=@(() => confirmModal.Show("Enumeration", "Delete Enumeration?", "DELETE_ENUMERATION", Enumeration))></i>
+  </div>
+  <div class="card-body">
+      <h5 class="card-title">Members<button class="btn btn-link btn-sm" @onclick=@(() => promptAddMember.Show())>Add Member</button></h5>
+      <ul class="list-group list-group-flush">
+          @foreach (var m in Enumeration.Members)
+            {
+                <li class="list-group-item">@m 
+                    <i class="bi-trash" @onclick=@(() => confirmModal.Show("Enumeration", "Delete Enumeration Member?", "DELETE_MEMBER", m))></i>
+                </li>
+            }
+      </ul>
+    </div>
+
+</div>
+
+<EnumerationEditor @ref=enumerationEditor Project=Project OnOk=OnOkEnumerationEditor></EnumerationEditor>
+<ConfirmModal @ref=confirmModal OnOk=OnOkDelete></ConfirmModal>
+<PromptModal @ref=promptAddMember Title="Enumeration" Body="Type Member name" OnOk=OnOkMemberName></PromptModal>

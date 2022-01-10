@@ -7,6 +7,7 @@ namespace GenThis.App.Pages.Components
     {
         PromptModal promptNamespaceName;
         ClassEditor classEditor;
+        EnumerationEditor enumerationEditor;
         ConfirmModal confirmDeleteNamespace;
 
         [Parameter]
@@ -28,10 +29,18 @@ namespace GenThis.App.Pages.Components
             Namespace.Classes.Remove(deletedClass);
         }
 
+        void OnDeleteEnumeration(Enumeration enumeration)
+        {
+            Namespace.Enumerations.Remove(enumeration);
+        }
+
         void OnOkClassEditor(Class editedClass)
         {
-            //var newClass = new Class() { Name = name.Replace(" ", "") }; // name can´t contain spaces
             Namespace.Classes.Add(editedClass);
+        }
+        void OnOkEnumerationEditor(Enumeration enumeration)
+        {
+            Namespace.Enumerations.Add(enumeration);
         }
 
         void OnOkDelete()

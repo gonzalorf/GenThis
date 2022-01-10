@@ -80,39 +80,4 @@ namespace GenThis.Models
             return string.Format(format, type);
         }
     }
-
-    public enum TypeKind
-    {
-        BuiltIn,
-        Reference,
-        Enumeration,
-        Void
-    }
-
-    public enum BuiltInType
-    {
-        String
-        , Integer
-        , Float
-        , Long
-        , Double
-        , Decimal
-        , Bool
-        , DateTime
-    }
-
-    public enum RelationshipKind
-    {
-        Association,
-        Aggregation,
-        Composition
-    }
-
-    public enum Accessibility
-    {
-        Public
-        , Protected
-        , Internal
-        , Private
-    }
 }
