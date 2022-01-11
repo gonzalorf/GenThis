@@ -31,7 +31,7 @@ namespace GenThis.API.Storage
 
         public IList<Project> GetAll(Models.User owner)
         {
-            var query = this.container.GetItemQueryIterator<Project>(new QueryDefinition("SELECT c.id, c.Name FROM c"));
+            var query = this.container.GetItemQueryIterator<Project>(new QueryDefinition("SELECT c.id, c.Name, c.Description FROM c"));
             List<Project> results = new List<Project>();
             while (query.HasMoreResults)
             {
