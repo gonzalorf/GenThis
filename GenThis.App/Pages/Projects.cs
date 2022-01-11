@@ -21,7 +21,8 @@ namespace GenThis.App.Pages
         {
             var project = confirmDeleteProject.Argument as Project;
             var result = await httpClient.DeleteAsync("Project/Delete?id=" + project.Id);
-
+            projects = await httpClient.GetFromJsonAsync<IList<Project>>("Project/GetAll");
+            StateHasChanged();
         }
     }
 }

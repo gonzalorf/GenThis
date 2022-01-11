@@ -34,8 +34,11 @@ namespace GenThis.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GenThis.API", Version = "v1" });
             });
 
-            //services.AddScoped<IStorage, InMemoryStorage>();
+#if DEBUG
+            services.AddScoped<IStorage, InMemoryStorage>();
+#else
             services.AddSingleton<IStorage>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
+#endif
 
             services.AddCors(policy =>
             {

@@ -7,13 +7,12 @@
 
 @foreach (var project in projects)
 {
-    <div class="card" style="width: 18rem;">
+    <div class="card mb-3" style="width: 18rem;">
         @*<img src="..." class="card-img-top" alt="...">*@
         <div class="card-body">
-            <h5 class="card-title">@project.Name</h5>
+            <h5 class="card-title">@project.Name <i class="bi-trash text-danger" @onclick=@(() => confirmDeleteProject.Show("Project", "Delete Project?", "DELETE_PROJECT", project))></i></h5>
             <p class="card-text">@project.Description</p>
-            <a href="/project/@project.Id" class="btn btn-link btn-sm">Go to Project</a>
-            <i class="bi-trash text-danger" @onclick=@(() => confirmDeleteProject.Show("Project", "Delete Project?", "DELETE_PROJECT", project))></i>
+            <a href="/project/@project.Id" class="btn btn-link btn-sm">Go to Project</a>           
         </div>
     </div>
 }

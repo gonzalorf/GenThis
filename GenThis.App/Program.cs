@@ -17,9 +17,11 @@ namespace GenThis.App
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("#app");
 
+#if DEBUG
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:44341/") });
+#else
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://genthisapi-f1.azurewebsites.net/") });
-            //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:44341/") });
-
+#endif
 
             await builder.Build().RunAsync();
         }
