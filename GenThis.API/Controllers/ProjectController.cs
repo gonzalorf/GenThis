@@ -60,22 +60,22 @@ namespace GenThis.API.Controllers
 
         [HttpDelete]
         [Route("Delete")]
-        public APIResult<Project> Delete(Project project)
+        public APIResult<Guid> Delete(Guid id)
         {
             try
             {
-                storage.Delete(project);
-                return new APIResult<Project>() { Result = true, ReturnData = project };
+                storage.Delete(id);
+                return new APIResult<Guid>() { Result = true, ReturnData = id };
             }
             catch (ApplicationException ex)
             {
                 logger.LogError(ex, ex.Message);
-                return new APIResult<Project>() { Result = false, Message = "Unable to delete the new Project. " + ex.Message };
+                return new APIResult<Guid>() { Result = false, Message = "Unable to delete the new Project. " + ex.Message };
             }
             catch (Exception ex)
             {
                 logger.LogError(ex, ex.ToString());
-                return new APIResult<Project>() { Result = false, Message = "Unexpected server side error. Try again." };
+                return new APIResult<Guid>() { Result = false, Message = "Unexpected server side error. Try again." };
             }
         }
     }

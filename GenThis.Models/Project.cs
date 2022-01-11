@@ -19,7 +19,7 @@ namespace GenThis.Models
             {
                 foreach (var c in ns.Classes)
                 {
-                    if (c.ID.ToString() == id) return ns;
+                    if (c.Id.ToString() == id) return ns;
                 }
             }
 
@@ -32,7 +32,7 @@ namespace GenThis.Models
             {
                 foreach (var c in ns.Classes)
                 {
-                    if (c.ID == id) return c;
+                    if (c.Id == id) return c;
                 }
             }
 
@@ -60,7 +60,7 @@ namespace GenThis.Models
             {
                 foreach (var e in ns.Enumerations)
                 {
-                    if (e.ID == id) return e;
+                    if (e.Id == id) return e;
                 }
             }
 

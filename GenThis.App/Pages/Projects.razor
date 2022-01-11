@@ -12,7 +12,10 @@
         <div class="card-body">
             <h5 class="card-title">@project.Name</h5>
             <p class="card-text">@project.Description</p>
-            <a href="/project/@project.ID" class="btn btn-link btn-sm">Go to Project</a>
+            <a href="/project/@project.Id" class="btn btn-link btn-sm">Go to Project</a>
+            <i class="bi-trash text-danger" @onclick=@(() => confirmDeleteProject.Show("Project", "Delete Project?", "DELETE_PROJECT", project))></i>
         </div>
     </div>
 }
+
+<ConfirmModal @ref=confirmDeleteProject OnOk=OnOkDeleteProject></ConfirmModal>

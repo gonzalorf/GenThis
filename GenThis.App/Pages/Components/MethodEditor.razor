@@ -30,7 +30,7 @@
                             <select class="form-select" @bind=selectedReferenceTypeID>
                                 @foreach (var referenceType in Project.GetClasses())
                                 {
-                                    <option value="@referenceType.ID">@referenceType.Name</option>
+                                    <option value="@referenceType.Id">@referenceType.Name</option>
                                 }
                             </select>
                         </div>
@@ -42,7 +42,7 @@
                             <select class="form-select" @bind=selectedEnumerationTypeID>
                                 @foreach (var enumerationType in Project.GetEnumerations())
                                 {
-                                    <option value="@enumerationType.ID">@enumerationType.Name</option>
+                                    <option value="@enumerationType.Id">@enumerationType.Name</option>
                                 }
                             </select>
                         </div>

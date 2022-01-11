@@ -10,9 +10,9 @@ namespace GenThis.API.Storage
     {
         static IDictionary<Guid, Project> db = new Dictionary<Guid, Project>();
 
-        public void Delete(Project project)
+        public void Delete(Guid projectId)
         {
-            db.Remove(project.ID);
+            db.Remove(projectId);
         }
 
         public IList<Project> GetAll(User owner)
@@ -23,24 +23,24 @@ namespace GenThis.API.Storage
             }
             else
             {
-                return db.Where(p => p.Value.Owner.ID == owner.ID).Select(p => p.Value).ToList();
+                return db.Where(p => p.Value.Owner.Id == owner.Id).Select(p => p.Value).ToList();
             }
         }
 
         public Project GetProject(Guid guid)
         {
-            return db.First(p => p.Value.ID == guid).Value;
+            return db.First(p => p.Value.Id == guid).Value;
         }
 
         public void Save(Project project)
         {
-            if (db.ContainsKey(project.ID))
+            if (db.ContainsKey(project.Id))
             {
-                db[project.ID] = project;
+                db[project.Id] = project;
             }
             else
             {
-                db.Add(project.ID, project);
+                db.Add(project.Id, project);
             }    
         }
     }

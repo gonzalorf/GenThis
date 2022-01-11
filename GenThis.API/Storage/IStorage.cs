@@ -12,7 +12,7 @@ namespace GenThis.API.Storage
 
         void Save(Project project);
 
-        void Delete(Project project);
+        void Delete(Guid projectId);
         
         IList<Project> GetAll(User owner);
 

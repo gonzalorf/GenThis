@@ -35,6 +35,7 @@ namespace GenThis.API
             });
 
             services.AddScoped<IStorage, InMemoryStorage>();
+            //services.AddSingleton<IStorage>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
 
             services.AddCors(policy =>
             {
@@ -70,6 +71,24 @@ namespace GenThis.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        /// <summary>
+        /// Creates a Cosmos DB database and a container with the specified partition key. 
+        /// </summary>
+        /// <returns></returns>
+        private static async Task<CosmosDBStorage> InitializeCosmosClientInstanceAsync(IConfigurationSection configurationSection)
+        {
+            string databaseName = configurationSection.GetSection("DatabaseName").Value;
+            string containerName = configurationSection.GetSection("ContainerName").Value;
+            string account = configurationSection.GetSection("Account").Value;
+            string key = configurationSection.GetSection("Key").Value;
+            Microsoft.Azure.Cosmos.CosmosClient client = new Microsoft.Azure.Cosmos.CosmosClient(account, key);
+            CosmosDBStorage cosmosDbService = new CosmosDBStorage(client, databaseName, containerName);
+            //Microsoft.Azure.Cosmos.DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
+            //await database.Database.CreateContainerIfNotExistsAsync(containerName, "/Id");
+
+            return cosmosDbService;
         }
     }
 }

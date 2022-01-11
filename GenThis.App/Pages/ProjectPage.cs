@@ -59,7 +59,7 @@ namespace GenThis.App.Pages
 
             if (returnData.Result)
             {
-                ProjectID = returnData.ReturnData.ID.ToString();
+                ProjectID = returnData.ReturnData.Id.ToString();
                 navigationManager.NavigateTo("projects");
             }
             else

@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 
 namespace GenThis.Models
@@ -5,6 +6,7 @@ namespace GenThis.Models
     [Serializable]
     public class Base
     {
-        public Guid ID { get; set; } = Guid.NewGuid();
+        [JsonProperty(PropertyName = "id")]
+        public Guid Id { get; set; } = Guid.NewGuid();
     }
 }
