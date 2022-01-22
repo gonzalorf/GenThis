@@ -16,7 +16,7 @@ namespace GenThis.Models
         public BuiltInType BuiltInReturnType { get; set; }
         public Enumeration EnumReturnType { get; set; }
         public bool IsRetunTypeList { get; set; }
-        public List<Parameter> Parameters { get; set; } = new List<Parameter>();
+        public IList<Parameter> Parameters { get; set; } = new List<Parameter>();
 
         public void Validate()
         {

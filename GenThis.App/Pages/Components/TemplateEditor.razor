@@ -1,0 +1,39 @@
+﻿@if (show)
+{
+    <div class="modal fade show d-block" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Template</h5>
+                </div>
+                <div class="modal-body">        
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" @bind=template.Name>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows=2 @bind="template.Description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Target</label>
+                        <select class="form-select" @bind=template.Target>
+                            @foreach (var target in Enum.GetValues(typeof(TemplateTarget)))
+                            {
+                                <option value="@target.ToString()">@target.ToString()</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Content</label>
+                        <textarea class="form-control" rows=10 @bind="template.Content"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick=Hide>Cancel</button>
+                    <button type="button" class="btn btn-primary" @onclick=@(() => Ok())>Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -25,6 +25,5 @@ namespace GenThis.Models
         , Parameter
         , Enumeration
         , Project
-        , Other
     }
 }

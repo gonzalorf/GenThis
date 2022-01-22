@@ -9,6 +9,6 @@ namespace GenThis.Models
         public string Name { get; set; }
         public string UIName { get; set; }
         public string UINamePlural { get; set; }
-        public List<string> Members { get; set; } = new List<string>();
+        public IList<string> Members { get; set; } = new List<string>();
     }
 }

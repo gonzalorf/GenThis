@@ -1,13 +1,16 @@
-﻿@page "/projects"
+﻿@page "/"
+@page "/projects"
 @inject HttpClient httpClient
 @inject NavigationManager navigationManager
+@inject IJSRuntime JS
 
 <h3>Projects<button class="btn btn-link btn-sm" @onclick=@(() => navigationManager.NavigateTo("/project"))>New Project</button>
 </h3>
 
+
 @foreach (var project in projects)
 {
-    <div class="card mb-3" style="width: 18rem;">
+    <div class="card mb-3">
         @*<img src="..." class="card-img-top" alt="...">*@
         <div class="card-body">
             <h5 class="card-title">@project.Name <i class="bi-trash text-danger" @onclick=@(() => confirmDeleteProject.Show("Project", "Delete Project?", "DELETE_PROJECT", project))></i></h5>
@@ -17,4 +20,10 @@
     </div>
 }
 
+
 <ConfirmModal @ref=confirmDeleteProject OnOk=OnOkDeleteProject></ConfirmModal>
+
+
+<button @onclick="DownloadFileFromStream">
+    Download File From Stream
+</button>

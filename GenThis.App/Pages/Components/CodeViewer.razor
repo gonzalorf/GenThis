@@ -1,0 +1,42 @@
+﻿@inject HttpClient httpClient
+
+@if (show)
+{
+    <div class="modal fade show d-block" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Code Viewer</h5>
+                </div>
+                <div class="modal-body">        
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <span class="form-control">@currentElementName</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Template</label>
+                        <select class="form-select" @bind=selectedTemplateID>
+                            @foreach (var template in templates)
+                            {
+                                <option value="@template.Id">@template.Name</option>
+                            }
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="btn btn-info" @onclick=@(() => Generate())>Generate</button>
+
+                    <div class="mb-3">
+                        <label class="form-label">Code</label>
+                        <textarea class="form-control" rows=10 @bind="genResult"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick=Hide>Close</button>
+                    <button type="button" class="btn btn-primary" @onclick=@(() => Download())>Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

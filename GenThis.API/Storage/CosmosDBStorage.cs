@@ -24,12 +24,17 @@ namespace GenThis.API.Storage
             this.container = dbClient.GetContainer(databaseName, containerName);
         }
 
-        public async void Delete(Guid projectId)
+        public async void DeleteProject(Guid projectId)
         {
             await this.container.DeleteItemAsync<Project>(projectId.ToString(), new PartitionKey(projectId.ToString()));
         }
 
-        public IList<Project> GetAll(Models.User owner)
+        public void DeleteTemplate(Guid templateId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<Project> GetAllProjects(Models.User owner)
         {
             var query = this.container.GetItemQueryIterator<Project>(new QueryDefinition("SELECT c.id, c.Name, c.Description FROM c"));
             List<Project> results = new List<Project>();
@@ -43,6 +48,11 @@ namespace GenThis.API.Storage
             return results;
         }
 
+        public IList<Template> GetAllTemplates(Models.User owner)
+        {
+            throw new NotImplementedException();
+        }
+
         public Project GetProject(Guid guid)
         {
             var query = this.container.GetItemQueryIterator<Project>(new QueryDefinition("SELECT * FROM c WHERE c.id = '" + guid.ToString() + "'"));
@@ -50,9 +60,19 @@ namespace GenThis.API.Storage
             return query.ReadNextAsync().Result.First();
         }
 
-        public async void Save(Project project)
+        public Template GetTemplate(Guid guid)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async void SaveProject(Project project)
         {
             await this.container.UpsertItemAsync<Project>(project, new PartitionKey(project.Name.ToString()));
+        }
+
+        public void SaveTemplate(Template template)
+        {
+            throw new NotImplementedException();
         }
     }
 }

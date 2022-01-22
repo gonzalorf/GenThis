@@ -9,6 +9,7 @@ namespace GenThis.App.Pages.Components
         MethodEditor methodEditor;
         PropertyEditor propertyEditor;
         ConfirmModal confirmModal;
+        CodeViewer codeViewer;
 
         [Parameter]
         public Project Project { get; set; }

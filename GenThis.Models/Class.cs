@@ -9,8 +9,8 @@ namespace GenThis.Models
         public string Name { get; set; }
         public string UIName { get; set; }
         public string UINamePlural { get; set; }
-        public List<Property> Properties { get; set; } = new List<Property>();
-        public List<Method> Methods { get; set; } = new List<Method>();
+        public IList<Property> Properties { get; set; } = new List<Property>();
+        public IList<Method> Methods { get; set; } = new List<Method>();
         public Class BaseClass { get; set; }
 
     }

@@ -10,11 +10,19 @@ namespace GenThis.API.Storage
     {
         Project GetProject(Guid guid);
 
-        void Save(Project project);
+        void SaveProject(Project project);
 
-        void Delete(Guid projectId);
+        void DeleteProject(Guid projectId);
         
-        IList<Project> GetAll(User owner);
+        IList<Project> GetAllProjects(User owner);
+
+        Template GetTemplate(Guid guid);
+
+        void SaveTemplate(Template template);
+
+        void DeleteTemplate(Guid templateId);
+
+        IList<Template> GetAllTemplates(User owner);
 
     }
 }

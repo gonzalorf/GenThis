@@ -2,6 +2,7 @@
     <div class="card-header text-white bg-secondary">
     Class <b>@Class.Name</b>
     <i class="bi-pencil" @onclick=@(() => classEditor.Show(Class))></i>
+    <i class="bi-code" @onclick=@(() => codeViewer.ShowForClass(Class))></i>
     <i class="bi-trash" @onclick=@(() => confirmModal.Show("Class", "Delete Class?", "DELETE_CLASS", Class))></i>
   </div>
   <div class="card-body">
@@ -35,3 +36,4 @@
 <MethodEditor @ref=methodEditor Project=Project OnOk=OnOkMethodEditor></MethodEditor>
 <PropertyEditor @ref=propertyEditor Project=Project OnOk=OnOkPropertyEditor></PropertyEditor>
 <ConfirmModal @ref=confirmModal OnOk=OnOkDelete></ConfirmModal>
+<CodeViewer @ref=codeViewer Project=Project></CodeViewer>

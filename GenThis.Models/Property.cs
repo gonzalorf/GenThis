@@ -12,7 +12,7 @@ namespace GenThis.Models
         public Class ReferenceType { get; set; }
         public BuiltInType BuiltInType { get; set; }
         public Enumeration EnumerationType { get; set; }
-        public bool IsNullable { get; set; } = true;
+        public bool IsNullable { get; set; }
         public bool IsList { get; set; }
         public bool PreventLazyLoad { get; set; }
         public bool IsUnique { get; set; }

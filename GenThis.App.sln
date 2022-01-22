@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenThis.Models", "GenThis.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenThis.API", "GenThis.API\GenThis.API.csproj", "{C641FAC9-01FA-4A0D-96BE-C562CB87187A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generators", "Generators", "{D26E751A-DE13-4068-A0C9-BE21B025B688}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenThis.Generators.Base", "GenThis.Generators.Base\GenThis.Generators.Base.csproj", "{BD597DDA-57A9-4C24-99E5-1B51AD936218}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenThis.Generators.BlazorApp", "GenThis.Generators.BlazorApp\GenThis.Generators.BlazorApp.csproj", "{7FD7FFCD-3E5B-4783-8760-064D05F0C1F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +33,21 @@ Global
 		{C641FAC9-01FA-4A0D-96BE-C562CB87187A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C641FAC9-01FA-4A0D-96BE-C562CB87187A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C641FAC9-01FA-4A0D-96BE-C562CB87187A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD597DDA-57A9-4C24-99E5-1B51AD936218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD597DDA-57A9-4C24-99E5-1B51AD936218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD597DDA-57A9-4C24-99E5-1B51AD936218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD597DDA-57A9-4C24-99E5-1B51AD936218}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FD7FFCD-3E5B-4783-8760-064D05F0C1F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD7FFCD-3E5B-4783-8760-064D05F0C1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD7FFCD-3E5B-4783-8760-064D05F0C1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD7FFCD-3E5B-4783-8760-064D05F0C1F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD597DDA-57A9-4C24-99E5-1B51AD936218} = {D26E751A-DE13-4068-A0C9-BE21B025B688}
+		{7FD7FFCD-3E5B-4783-8760-064D05F0C1F8} = {D26E751A-DE13-4068-A0C9-BE21B025B688}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE6EB6E5-69E3-4F3E-BA3B-16283F1A8B01}

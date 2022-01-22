@@ -9,7 +9,7 @@ namespace GenThis.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<Namespace> Namespaces { get; set; } = new List<Namespace>();
+        public IList<Namespace> Namespaces { get; set; } = new List<Namespace>();
         public User Owner { get; set; }
         public bool IsPublic { get; set; }
 

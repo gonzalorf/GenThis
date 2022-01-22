@@ -13,14 +13,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.15.5">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Scriban" Version="5.0.0" />
     <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GenThis.Generators.Base\GenThis.Generators.Base.csproj" />
     <ProjectReference Include="..\GenThis.Models\GenThis.Models.csproj" />
   </ItemGroup>
 

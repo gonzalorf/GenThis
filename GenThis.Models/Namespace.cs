@@ -7,7 +7,7 @@ namespace GenThis.Models
     public class Namespace : Base
     {
         public string Name { get; set; }
-        public List<Class> Classes { get; set; } = new List<Class>();
-        public List<Enumeration> Enumerations { get; set; } = new List<Enumeration>();
+        public IList<Class> Classes { get; set; } = new List<Class>();
+        public IList<Enumeration> Enumerations { get; set; } = new List<Enumeration>();
     }
 }

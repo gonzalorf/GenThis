@@ -1,0 +1,26 @@
+﻿@page "/templates"
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<h3>Templates<button class="btn btn-link btn-sm" @onclick=@(() => templateEditor.Show(new Template()))>New Template</button>
+</h3>
+
+@foreach (var template in templates)
+{
+    <div class="card mb-3">
+        @*<img src="..." class="card-img-top" alt="...">*@
+        <div class="card-body">
+            <h5 class="card-title">@template.Name <i class="bi-trash text-danger" @onclick=@(() => confirmDeleteTemplate.Show("Template", "Delete Template?", "DELETE_TEMPLATE", template))></i></h5>
+            <p class="card-text">@template.Description</p>
+            @*<a href="/project/@project.Id" class="btn btn-link btn-sm">Edit Template</a>   *@     
+        </div>
+    </div>
+}
+@if (!string.IsNullOrWhiteSpace(errorMessage)) 
+{ 
+<div class="alert alert-danger" role="alert">
+    @errorMessage
+</div>
+}
+<ConfirmModal @ref=confirmDeleteTemplate OnOk=OnOkDeleteTemplate></ConfirmModal>
+<TemplateEditor @ref=templateEditor OnOk=OnOkTemplateEditor></TemplateEditor>
