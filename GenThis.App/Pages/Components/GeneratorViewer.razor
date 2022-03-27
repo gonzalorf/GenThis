@@ -1,0 +1,37 @@
+﻿@*@inject HttpClient httpClient
+
+@if (show)
+{
+    <div class="modal fade show d-block" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Generator Viewer</h5>
+                </div>
+                <div class="modal-body">        
+                    <div class="mb-3">
+                        <label class="form-label">Target</label>
+                        <span class="form-control">@currentElementName</span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Generator</label>
+                        <select class="form-select" @bind=selectedGenerator>
+                            @foreach (var generator in generators)
+                            {
+                                <option value="@generator.Name">@generator.Name</option>
+                            }
+                        </select>
+                    </div>
+                    
+                    <button type="button" class="btn btn-info" @onclick=@(() => Generate())>Generate</button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick=Hide>Close</button>
+                    <button type="button" class="btn btn-primary" @onclick=@(() => Download())>Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}*@

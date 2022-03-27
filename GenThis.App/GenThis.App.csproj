@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazored.LocalStorage" Version="4.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.10" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="6.0.1">
@@ -19,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GenThis.Generators.Base\GenThis.Generators.Base.csproj" />
+    <ProjectReference Include="..\GenThis.Generators.BlazorApp\GenThis.Generators.BlazorApp.csproj" />
     <ProjectReference Include="..\GenThis.Models\GenThis.Models.csproj" />
   </ItemGroup>
 

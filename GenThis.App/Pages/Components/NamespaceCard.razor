@@ -2,6 +2,7 @@
   <div class="card-header text-white bg-primary">
     Namespace <b>@Namespace.Name</b>
     <i class="bi-pencil" @onclick=@(() => promptNamespaceName.Show())></i>
+    @*<i class="bi-gear" @onclick=@(() => generatorViewer.ShowForNamespace(Namespace))></i>*@
     <i class="bi-trash" @onclick=@(() => confirmDeleteNamespace.Show())></i>
   </div>
   <div class="card-body">

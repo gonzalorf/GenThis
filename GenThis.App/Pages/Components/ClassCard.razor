@@ -3,6 +3,7 @@
     Class <b>@Class.Name</b>
     <i class="bi-pencil" @onclick=@(() => classEditor.Show(Class))></i>
     <i class="bi-code" @onclick=@(() => codeViewer.ShowForClass(Class))></i>
+    <i class="bi-gear"></i>
     <i class="bi-trash" @onclick=@(() => confirmModal.Show("Class", "Delete Class?", "DELETE_CLASS", Class))></i>
   </div>
   <div class="card-body">

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Blazored.LocalStorage;
 
 namespace GenThis.App
 {
@@ -22,6 +23,7 @@ namespace GenThis.App
 #else
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://genthisapi-f1.azurewebsites.net/") });
 #endif
+            builder.Services.AddBlazoredLocalStorage();
 
             await builder.Build().RunAsync();
         }
